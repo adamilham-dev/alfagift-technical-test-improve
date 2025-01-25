@@ -10,17 +10,17 @@ import UIKit
 
 struct ContentView: View {
     var body: some View {
-        LoginViewControllerWrapper()
+        SplashViewControllerWrapper()
             .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct LoginViewControllerWrapper: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> LoginViewController {
-        return LoginViewController()
+struct SplashViewControllerWrapper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> SplashViewController {
+        return SplashViewController()
     }
 
-    func updateUIViewController(_ uiViewController: LoginViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: SplashViewController, context: Context) {
         // Leave empty as we don't need to update anything for now
     }
 }
