@@ -13,8 +13,8 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(StudentCell.self, forCellReuseIdentifier: StudentCell.identifier)
-        tableView.backgroundColor = .clear // Transparent to show the gradient background
-        tableView.separatorStyle = .none // Remove default separators
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -68,7 +68,28 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
 
     private func fetchStudentData() {
         students = StudentStorageManager.shared.fetchStudents()
-        tableView.reloadData()
+        if students.isEmpty {
+            APIManager.shared.fetchStudents { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let apiStudents):
+                        self?.students = apiStudents
+                        self?.tableView.reloadData()
+                    case .failure(let error):
+                        self?.showError(error: error)
+                    }
+                }
+            }
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    private func showError(error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 
     @objc private func addStudentTapped() {
