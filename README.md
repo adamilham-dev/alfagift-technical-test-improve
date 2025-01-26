@@ -1,6 +1,6 @@
 # Student Management App
 
-This repository contains the **Student Management App**, a mobile application designed for efficient management of student data. Developed as part of a technical test for **Alfagift GLI Academy iOS Developer Intern**, this app provides a user-friendly interface for adding, viewing, updating, and deleting student information, including profile photos. The app also supports offline access by storing student data locally. This app is also an improve version from this project [Github Link].(https://github.com/adamilham-dev/alfagift-technical-test-original).
+This repository contains the **Student Management App**, a mobile application designed for efficient management of student data. Developed as part of a technical test for **Alfagift GLI Academy iOS Developer Intern**, this app provides a user-friendly interface for adding, viewing, updating, and deleting student information, including profile photos. The app also supports offline access by storing student data locally. This app is also an improve version from this project [Github Link](https://github.com/adamilham-dev/alfagift-technical-test-original).
 
 ---
 
